@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="index1.css">
+    <style>
+      body{
+        background: linear-gradient(to right,teal, purple);
+      }
+      h3 {
+        color: white;
+        background-color: orchid;
+      }
+      p {
+        color: rgb(255, 255, 255);
+        text-align:left;
+      }
+      h6{
+        text-align:left;
+      }
+      ol {
+        background-color: orchid;
+        color:white;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <nav>
+      <label class="logo">INTERNO</label>
+      <ul>
+        <li><a class="active" href="#">Home</a></li>
+        <li><a class="signup" href="file:///C:/Users/ysugg/Documents/New%20folder%20(2)/internologin.html">login</a></li>
+        <li><a class="login" href="file:///C:/Users/ysugg/Documents/New%20folder%20(2)/internosignup.html">signup</a></li>
+        <li><a class="login" href="file:///C:/Users/ysugg/Documents/New%20folder%20(2)/compaany.html">Company Sign In</a></li>
+      </ul>
+    </nav>
+  
+    <h3>
+      Welcome to <i>interno</i>, your ultimate destination for finding meaningful internships.
+
+      Our mission is to connect talented students and recent graduates with top companies and organizations, providing hands-on experience and valuable skills development.
+
+      We offer a wide range of internships across multiple industries, including technology, finance, marketing, and more. Our partnerships with industry leaders ensure that you will gain exposure to real-world projects and be part of a supportive, learning-focused environment.
+
+      With a user-friendly platform m and personalized support from our dedicated team, finding and applying for your dream internship has never been easier. Whether you are just starting your career journey or looking to switch fields, <i>interno</i> is here to help you take your next step.
+
+      Start exploring today and discover your future internship. Apply now and take the first step towards your dream career.
+    </h3>
+    <br><br><br>
+    <div style="display: flex;">
+      <div style="display: flex; flex-direction: row;">
+        <a href="https://careers.google.com/students/">
+          <img src="C:\Users\ysugg\Downloads\google.jfif" alt="google" style="margin-right: 10px;">
+          <p style="font-size: 50px; margin: 0;"><i>apply for google internships</i></p>
+        </a>
+        <a href="https://www.linkedin.com/jobs/facebook-internship-jobs/?currentJobId=3420933991&originalSubdomain=in">
+          <img src="C:\Users\ysugg\Downloads\facebook.png" alt="facebook" breadth="225" width="225" onclick="showInternshipDescriptions('1')" style="margin-right: 10px;">
+          <p style="font-size: 50px; margin: 0;"><i>apply for facebook internships</i></p>
+        </a>
+        <a href="https://careers.accenture.com/students">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdwCdmACPzxGOm6lqLVJFA8Jgt-8ctju1UyQ&usqp=CAU" breadth="225" width="225" alt="accenture" style="margin-right: 10px;">
+          <p style="font-size: 50px; margin: 0;"><i>apply for accenture internships</i></p>
+        </a>
+        <a href="https://www.google.com/search?q=apple+internship&source=lmns&bih=569&biw=1280&rlz=1C1CHBF_enIN1038IN1038&hl=en&sa=X&ibp=htl;jobs&ved=2ahUKEwjsgM-d4fv8AhWBS2wGHRd8Ae0Qkd0GegQIChAB#fpstate=tldetail&htivrt=jobs&htiq=apple+internship&htidocid=DfeeSRnZdFIAAAAAAAAAAA%3D%3D">
+          <img src="C:\Users\ysugg\Downloads\apple.png" alt="apple" style="margin-right: 5px;">
+          <p style="font-size: 50px; margin: 0;"><i>apply for apple internships</i></p>
+        </a>
+        <a href="https://jobs.netflix.com/">
+          <img src="C:\Users\ysugg\Downloads\netflix.png" breadth="225" width="225" alt="apple" >
+          <p style="font-size: 50px; margin: 0;"><i>apply for apple internships</i></p><br><br>
+        </a>
+      </div>
+    </div>
+    <div class="text">
+      <p style="font-size: 50px";><marquee scrollamount="15">you can also apply for many companies like:</marquee>
+    <list>
+    <ol>
+      <li><b>accenture</b></li>
+      <li><b>mindtree</b></li>
+      <li><b>amazon</b></li>
+      <li><b>microsoft</b></li>
+      <li><b>ibm</b></li>
+      <li><b>cognizant</b></li>
+      <li><b>adobe</b></li>
+      <li><b>more...</b></li>
+    </ol>
+   </list>
+    </p>
+  </div>
+  <script>
+  function showInternshipDescriptions(imageID) {
+    fetch('/internship_descriptions')
+    .then(response => response.json())
+    .then(data => {
+        // Display the internship descriptions on the page
+        // For example:
+        let descriptions = '';
+        data.forEach(internship => {
+          if (internship.imageId === imageId) {
+            descriptions += `<h3>${internship.title} (${internship.location})</h3>`;
+            descriptions += `<p>${internship.description}</p>`;
+          }
+        });
+        document.getElementById('internship_descriptions').innerHTML = descriptions;
+    });
+}
+</script>
+
+<div id="internship_descriptions"></div>
+  </body>
+  </html>
